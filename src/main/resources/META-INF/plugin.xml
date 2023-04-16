@@ -1,18 +1,18 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>org.jetbrains.plugins.template</id>
-    <name>Template</name>
+    <name>IntelliJ Platform Plugin Template</name>
     <vendor>JetBrains</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.MyApplicationService"/>
-        <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
+        <toolWindow factoryClass="org.jetbrains.plugins.template.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+        <listener class="org.jetbrains.plugins.template.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
     </applicationListeners>
 </idea-plugin>
